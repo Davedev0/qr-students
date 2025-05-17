@@ -25,7 +25,7 @@
         }
         
         body {
-            background-color: #f5f7fa;
+            background-color: #ecf0f1;
             color: var(--dark);
             min-height: 100vh;
         }
@@ -34,17 +34,16 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
+            
         }
         
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 2rem;
             padding: 1rem;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+           
         }
         
         .logo-wrapper {
@@ -64,7 +63,12 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #2c3e50;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.3s ease;
         }
         
         h1 {
@@ -75,8 +79,6 @@
         
         .scanner-container {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             padding: 2rem;
             text-align: center;
         }
@@ -199,9 +201,9 @@
         <header>
             <div class="logo-wrapper">
                 <img src="logo.jpg" alt="Company Logo" class="logo-img">
-                <div class="logo-text">AISAT DASMARIÑAS</div>
+                <div class="logo-text">AISAT DASMARIÑAS COLLEGE</div>
             </div>
-            <h1><i class="fas fa-qrcode"></i> QR Code Scanner</h1>
+            <h1><i class="fas fa-qrcode"></i> QR Code</h1>
         </header>
         
         <div class="scanner-container">
