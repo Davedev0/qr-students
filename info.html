@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .student-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .student-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .student-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .student-body {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 2rem;
+            gap: 2rem;
+        }
+        
+        .student-image {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .id-badge {
+            background: var(--success);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .student-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .detail-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .detail-value {
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .two-column .detail-group {
+            flex: 1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .student-body {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            
+            .student-image {
+                margin-bottom: 1.5rem;
+            }
+            
+            .two-column {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="logo.jpg" alt="Company Logo" class="logo-img">
+                <div class="logo-text">AISAT DASMARIÑAS</div>
+            </div>
+            <a href="scanner.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Scanner
+            </a>
+        </header>
+        
+        <div class="student-card">
+            <div class="student-header">
+                <h2>Student Information</h2>
+            </div>
+            
+            <div class="student-body">
+                <div class="student-image">
+                    <img id="profile-img" class="profile-img" alt="Profile Picture">
+                    <div class="id-badge" id="student-id"></div>
+                </div>
+                
+                <div class="student-details">
+                    <div class="detail-group">
+                        <span class="detail-label">Full Name</span>
+                        <div class="detail-value" id="full-name"></div>
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="detail-group">
+                            <span class="detail-label">Course</span>
+                            <div class="detail-value" id="course"></div>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <span class="detail-label">Year Level</span>
+                            <div class="detail-value" id="year-level"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="detail-group">
+                            <span class="detail-label">Birthdate</span>
+                            <div class="detail-value" id="birthdate"></div>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <span class="detail-label">Age</span>
+                            <div class="detail-value" id="age"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="detail-group">
+                            <span class="detail-label">Email</span>
+                            <div class="detail-value" id="email"></div>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <span class="detail-label">Phone</span>
+                            <div class="detail-value" id="phone"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <span class="detail-label">Address</span>
+                        <div class="detail-value" id="address"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Student Information System &copy; 2023</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get student ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentId = urlParams.get('id');
+            
+            if (studentId) {
+                // Retrieve student data from localStorage
+                const savedData = localStorage.getItem('studentData');
+                if (savedData) {
+                    const students = JSON.parse(savedData);
+                    const studentData = students.find(student => student.studentId === studentId);
+                    
+                    if (studentData) {
+                        // Update the UI with student data
+                        document.getElementById('student-id').textContent = `ID: ${studentData.studentId}`;
+                        document.getElementById('full-name').textContent = studentData.fullName;
+                        document.getElementById('course').textContent = studentData.course;
+                        document.getElementById('year-level').textContent = studentData.yearLevel;
+                        document.getElementById('birthdate').textContent = studentData.birthdate;
+                        document.getElementById('age').textContent = studentData.age;
+                        document.getElementById('email').textContent = studentData.email;
+                        document.getElementById('phone').textContent = studentData.phone;
+                        document.getElementById('address').textContent = studentData.address;
+                        
+                        // Handle profile image
+                        const profileImg = document.getElementById('profile-img');
+                        if (studentData.profileImage) {
+                            profileImg.src = studentData.profileImage;
+                        } else {
+                            // Default avatar if no image
+                            const nameInitials = studentData.fullName.split(' ').map(n => n[0]).join('');
+                            profileImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(nameInitials)}&background=${studentData.gender === 'Female' ? 'ffb6c1' : 'add8e6'}`;
+                        }
+                    } else {
+                        alert("Student data not found");
+                        window.location.href = "scanner.html";
+                    }
+                } else {
+                    alert("No student data available");
+                    window.location.href = "scanner.html";
+                }
+            } 
+        });
+    </script>
+</body>
+</html>
